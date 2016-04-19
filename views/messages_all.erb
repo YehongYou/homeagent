@@ -1,0 +1,24 @@
+<form action='/messages'>
+<select name="search_by_suburb">
+     <% @suburbs.each do |suburb|%>
+       <%if suburb == @current_suburb%>
+       <option value="<%=suburb%>" selected><%=suburb%></option>
+       <%else%>
+          <option value="<%=suburb%>"><%=suburb%></option>
+       <%end%>
+     <%end%>
+</select>
+<button>search</button>
+</form>
+
+
+
+<% @messages.each do |message| %>
+  <p>
+    <a href="/messages/<%=message.id%>">
+      * I want to find a home at <strong><%=message.suburb%></strong>, post at <%=message.post_date.localtime%>.
+    </a>
+  </p>
+<%end%>
+
+<button><a href="/messages/new">I want to post a new message</a></button>

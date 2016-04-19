@@ -1,0 +1,36 @@
+<a href="/messages">Back to</a>
+<h1>message details</h1>
+
+<p>
+  "<%=@user.name%>" want to find a home at <%=@message.suburb %>, and this
+  message post at <%=@message.post_date.localtime%>
+</p>
+<h4>His/Her Requirement: </h4>
+<p>
+   <%=@message.requirement%>
+</p>
+<h4>Contact Details</h4>
+<p>
+  Name: <%=@user.name%> <br/>
+  Email: <%=@user.email%> <br/>
+  Phone no: <%=@user.phone%> <br/>
+  Occupation: <%=@user.occupation%>
+</p>
+<button><a href="/messages/<%=@message.id%>/edit">Edit Message</a></button>
+
+<form action="/messages/<%=@message.id%>"  method="post">
+   <input type="hidden" name="_method" value="delete">
+   <button>Delete Message</button>
+</form>
+<br/>
+<h4>Comments</h4>
+  <% @comments.each do |comment|%>
+   <p><%=comment.content%>  by <%=comment.user.name%></p>
+  <%end%>
+
+<form action="/messages/<%= @message.id%>/comments" method="post">
+    <textarea name="content" rows="8" cols="40">
+
+    </textarea>
+    <button>Post It</button>
+</form>

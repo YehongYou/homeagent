@@ -1,0 +1,12 @@
+
+<form class="" action="/messages/<%=@message.id%>" method="post">
+    <input type="hidden" name="_method" value="patch">
+
+    <label for="">Suburb</label><br/>
+    <input type="text" name="input_suburb" value="<%=@message.suburb%>"><br/>
+    <label for="">Requirements</label> <br/>
+    <textarea rows="8" cols="40" name="input_requirement">
+      <%=@message.requirement%>
+    </textarea><br/>
+    <button>Edit Message</button>
+</form>
