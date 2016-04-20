@@ -10,6 +10,8 @@ INSERT INTO user_types (name) VALUES
 ('manager');
 INSERT INTO user_types (name) VALUES
 ('customer');
+INSERT INTO user_types (name) VALUES
+('owner');
 
 
 CREATE TABLE users(

@@ -16,12 +16,23 @@
   Phone no: <%=@user.phone%> <br/>
   Occupation: <%=@user.occupation%>
 </p>
-<button><a href="/messages/<%=@message.id%>/edit">Edit Message</a></button>
 
-<form action="/messages/<%=@message.id%>"  method="post">
-   <input type="hidden" name="_method" value="delete">
-   <button>Delete Message</button>
-</form>
+
+<% if session[:user_id] == @message.user_id || current_user.user_type.name == "manager" || current_user.user_type.name == "owner"%>
+
+  <button><a href="/messages/<%=@message.id%>/edit">Edit Message</a></button>
+
+  <form action="/messages/<%=@message.id%>"  method="post">
+     <input type="hidden" name="_method" value="delete">
+     <button>Delete Message</button>
+  </form>
+
+<%end%>
+
+
+
+
+
 <br/>
 <h4>Comments</h4>
   <% @comments.each do |comment|%>

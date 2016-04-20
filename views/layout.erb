@@ -70,7 +70,10 @@
     <div class="container">
       <div class="page-header">
         <% if logged_in?%>
-          <h5>Hello <%= current_user.name%>!!</h5>
+          <h5>Hello <%= current_user.name%>!! <a href="/persion_account">Account</a></h5>
+          <% if current_user.user_type.name == "manager" || current_user.user_type.name == "owner"%>
+              <a href='/users'>Users management</a>
+          <%end%>
         <%else%>
            <span>Please login</span>
         <%end%>

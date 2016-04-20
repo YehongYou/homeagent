@@ -273,18 +273,76 @@ end
 
 #=================== user part =======================
 get "/register" do
+   @note = "Email address"
    erb :register
 end
 
+# register a new user
 post "/register/new" do
     user = User.new
     user.email = params[:input_email]
     user.password = params[:input_password]
     user.name = params[:input_name]
     user.phone = params[:input_phone]
-    user.occupation = params[:input_occupaiton]
+    user.occupation = params[:input_occupation]
     user.user_type_id = 2
-    user.save
+    exist = false
+    users = User.all
+    users.each do |user|
+       if user.email == params[:input_email]
+          exist = true
+       end
+    end
 
-    erb :login
+    if !exist
+      user.save
+      erb :login
+    else
+      @note = "This email alread exist ! Try again~"
+      erb :register
+    end
 end
+# show the user account and all their post
+
+get "/persion_account" do
+   @user = User.find(session[:user_id])
+   @properties = @user.properties
+   @messages = @user.messages
+
+   erb :user_account
+end
+
+# show all users
+
+get '/users' do
+   @owners = User.where(user_type_id: 3)
+   @managers = User.where(user_type_id: 1)
+   @users = User.where(user_type_id: 2)
+   erb :user_all
+end
+
+# change the normal user into manager
+get '/users/:id' do
+   user = User.find(params[:id])
+   user.user_type_id = 1
+   user.save
+   redirect to '/users'
+end
+
+delete '/users/:id' do
+   user = User.find(params[:id])
+   user.destroy
+   redirect to '/users'
+end
+
+get '/users/revoke/:id' do
+  user = User.find(params[:id])
+  user.user_type_id = 2
+  user.save
+  redirect to '/users'
+end
+
+# get '/users/:id/details' do
+#    @user = User.find(params[:id])
+#    erb :user_details
+# end

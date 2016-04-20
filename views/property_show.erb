@@ -19,12 +19,21 @@
   Phone no: <%=@user.phone%> <br/>
   Occupation: <%=@user.occupation%>
 </p>
+
+
+<% if session[:user_id] == @property.user_id || current_user.user_type.name == "manager" || current_user.user_type.name == "owner"%>
+
 <button><a href="/properties/<%=@property.id%>/edit">Edit Property</a></button>
 
 <form action="/properties/<%=@property.id%>"  method="post">
    <input type="hidden" name="_method" value="delete">
    <button>Delete Property</button>
 </form>
+
+<%end%>
+
+
+
 
 <br/>
 <h4>Comments</h4>
