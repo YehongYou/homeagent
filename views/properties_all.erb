@@ -11,6 +11,20 @@
 <button>Search</button>
 </form>
 
+<form action='/properties'>
+<select name="search_by_purpose_id">
+     <% @property_purposes.each do |property_purpose|%>
+        <%if property_purpose == @current_purpose%>
+          <option value="<%=property_purpose.id%>" selected><%=property_purpose.name%></option>
+        <%else%>
+          <option value="<%=property_purpose.id%>"><%=property_purpose.name%></option>
+        <%end%>
+     <%end%>
+</select>
+<button>Search</button>
+</form>
+
+<a href='/properties'>All</a>
 
 
 <% @properties.each do |property| %>

@@ -86,7 +86,12 @@ end
 
 #  go to the create message form
 get "/messages/new" do
-  erb :new_message
+
+  if logged_in?
+     erb :new_message
+  else
+     erb :login
+  end
 end
 
 # post a new message into DATABASE
@@ -102,10 +107,15 @@ post "/messages" do
 end
 # show single message
 get "/messages/:id" do
-   @message = Message.find(params[:id])
-   @user = @message.user
-   @comments = @message.comments
-   erb :message_show
+
+  if logged_in?
+     @message = Message.find(params[:id])
+     @user = @message.user
+     @comments = @message.comments
+     erb :message_show
+  else
+     erb :login
+  end
 end
 
 
@@ -166,14 +176,25 @@ get '/properties' do
     #just get all properties
      @properties = Property.order('post_date DESC')
    end
+
+   @property_purposes = PropertyPurpose.all
+
+   if params[:search_by_purpose_id] != nil
+     @properties = Property.where(property_purpose_id: params[:search_by_purpose_id]).order('post_date DESC')
+     @current_purpose = params[:search_by_purpose]
+   end
+
   erb :properties_all
 end
 
 #go to the create new property form
 get "/properties/new" do
-  @property_purposes = PropertyPurpose.all
-
-  erb :new_property
+  if logged_in?
+    @property_purposes = PropertyPurpose.all
+    erb :new_property
+  else
+    erb :login
+  end
 end
 
 # create a new property and save it into database
@@ -195,10 +216,14 @@ end
 
 # show single property
 get "/properties/:id" do
-   @property = Property.find(params[:id])
-   @user = @property.user
-   @comments = @property.comments
-   erb :property_show
+   if logged_in?
+     @property = Property.find(params[:id])
+     @user = @property.user
+     @comments = @property.comments
+     erb :property_show
+   else
+     erb :login
+   end
 end
 
 
@@ -244,4 +269,22 @@ post "/properties/:property_id/comments" do
   else
     redirect to "/properties/#{params[:property_id]}"
   end
+end
+
+#=================== user part =======================
+get "/register" do
+   erb :register
+end
+
+post "/register/new" do
+    user = User.new
+    user.email = params[:input_email]
+    user.password = params[:input_password]
+    user.name = params[:input_name]
+    user.phone = params[:input_phone]
+    user.occupation = params[:input_occupaiton]
+    user.user_type_id = 2
+    user.save
+
+    erb :login
 end
