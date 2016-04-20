@@ -61,7 +61,7 @@ INSERT INTO property_purposes (name) VALUES
 CREATE TABLE comments(
   id SERIAL4 PRIMARY KEY,
   content VARCHAR(1000) NOT NULL,
-  find_house_id INTEGER,
-  find_property_id INTEGER,
+  message_id INTEGER,
+  property_id INTEGER,
   user_id INTEGER
 );

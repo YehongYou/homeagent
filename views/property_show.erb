@@ -1,0 +1,38 @@
+<a href="/properties">Back to</a>
+<h1>property details</h1>
+
+<p>
+ "<%=@user.name%>" has a <%=@property.kind%> <%=@property.property_purpose.name%>.
+</p>
+<h5>Address:</h5>
+<p>
+  <%=@property.address%>, <%=@property.suburb%> Melborun, VIC.
+</p>
+<h5>Every week is: <%=@property.rent%> dollars</h5>
+<h5>Description: </h5>
+<p><%=@property.description%></p>
+
+<h4>Contact Details</h4>
+<p>
+  Name: <%=@user.name%> <br/>
+  Email: <%=@user.email%> <br/>
+  Phone no: <%=@user.phone%> <br/>
+  Occupation: <%=@user.occupation%>
+</p>
+<button><a href="/properties/<%=@property.id%>/edit">Edit Property</a></button>
+
+<form action="/properties/<%=@property.id%>"  method="post">
+   <input type="hidden" name="_method" value="delete">
+   <button>Delete Property</button>
+</form>
+
+<br/>
+<h4>Comments</h4>
+  <% @comments.each do |comment|%>
+   <p><%=comment.content%> by <em>--<%=comment.user.name%></em></p>
+  <%end%>
+
+<form action="/properties/<%= @property.id%>/comments" method="post">
+    <textarea name="content" rows="8" cols="40"></textarea>
+    <button>Post It</button>
+</form>

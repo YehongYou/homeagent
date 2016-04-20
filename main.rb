@@ -95,11 +95,12 @@ post "/messages" do
    new_message.suburb = params[:input_suburb]
    new_message.requirement = params[:input_requirement]
    new_message.post_date = Time.now
+   new_message.user_id = session[:user_id]
    new_message.save
 
    redirect to '/messages'
 end
-# show single message 
+# show single message
 get "/messages/:id" do
    @message = Message.find(params[:id])
    @user = @message.user
@@ -131,13 +132,116 @@ delete "/messages/:message_id" do
   redirect to '/messages'
 end
 
-# comments
+# ===================messages ~ comments================
 post "/messages/:message_id/comments" do
    new_comment = Comment.new
-   new_comment.find_house_id = params[:message_id]
+   new_comment.message_id = params[:message_id]
    new_comment.user_id = session[:user_id]
    new_comment.content = params[:content]
-   new_comment.save
-   redirect to "/messages/#{params[:message_id]}"
 
+  if new_comment.valid?
+     new_comment.save
+     redirect to "/messages/#{params[:message_id]}"
+  else
+    redirect to "/messages/#{params[:message_id]}"
+  end
+end
+
+#===================properties part ====================
+# display all properties
+get '/properties' do
+
+  #  find unique suburb from all properties
+     all_properties = Property.all
+     all_suburb = []
+     all_properties.each do |each|
+       all_suburb << each.suburb
+     end
+     @suburbs = all_suburb.uniq
+
+   if params[:search_by_suburb] != nil
+     @properties = Property.where(suburb: params[:search_by_suburb]).order('post_date DESC')
+     @current_suburb = params[:search_by_suburb]
+   else
+    #just get all properties
+     @properties = Property.order('post_date DESC')
+   end
+  erb :properties_all
+end
+
+#go to the create new property form
+get "/properties/new" do
+  @property_purposes = PropertyPurpose.all
+
+  erb :new_property
+end
+
+# create a new property and save it into database
+post '/properties' do
+  new_property = Property.new
+  new_property.kind = params[:input_kind]
+  new_property.address = params[:input_address]
+  new_property.suburb = params[:input_suburb]
+  new_property.rent = params[:input_rent]
+  new_property.description = params[:input_description]
+  new_property.post_date = Time.now
+  new_property.user_id = session[:user_id]
+  new_property.property_purpose_id = params[:property_purpose_id]
+  new_property.save
+
+  redirect to '/properties'
+end
+
+
+# show single property
+get "/properties/:id" do
+   @property = Property.find(params[:id])
+   @user = @property.user
+   @comments = @property.comments
+   erb :property_show
+end
+
+
+# go to the edit form
+get "/properties/:property_id/edit" do
+   @property_purposes = PropertyPurpose.all
+   @property = Property.find(params[:property_id])
+   erb :property_edit
+end
+
+# edit the property into the database
+patch "/properties/:property_id" do
+   property = Property.find(params[:property_id])
+   property.kind = params[:input_kind]
+   property.address = params[:input_address]
+   property.suburb = params[:input_suburb]
+   property.rent = params[:input_rent]
+   property.description = params[:input_description]
+   property.post_date = Time.now
+   property.property_purpose_id = params[:property_purpose_id]
+   property.save
+
+   redirect to '/properties'
+end
+
+# delete the property in the database
+delete "/properties/:property_id" do
+  property = Property.find(params[:property_id])
+  property.destroy
+  redirect to '/properties'
+end
+
+# ====================== comments ~ property ================
+post "/properties/:property_id/comments" do
+   new_comment = Comment.new
+   new_comment.property_id = params[:property_id]
+   new_comment.user_id = session[:user_id]
+   new_comment.content = params[:content]
+
+  if new_comment.valid?
+     new_comment.save
+     redirect to "/properties/#{params[:property_id]}"
+  else
+    redirect to "/properties/#{params[:property_id]}"
+  end
 end

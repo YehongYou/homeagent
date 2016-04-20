@@ -1,4 +1,4 @@
-<form action='/messages'>
+<form action='/properties'>
 <select name="search_by_suburb">
      <% @suburbs.each do |suburb|%>
        <%if suburb == @current_suburb%>
@@ -13,12 +13,12 @@
 
 
 
-<% @messages.each do |message| %>
+<% @properties.each do |property| %>
   <p>
-    <a href="/messages/<%=message.id%>">
-      * I want to find a home at <strong><%=message.suburb%></strong>, post at <%=message.post_date.localtime%>.
+    <a href="/properties/<%=property.id%>">
+      * There is a <strong><%=property.property_purpose.name%></strong> home at <strong><%=property.suburb%></strong>, post at <%=property.post_date.localtime%>.
     </a>
   </p>
 <%end%>
 
-<button><a href="/messages/new">I want to post a new message</a></button>
+<button><a href="/properties/new">I want to post a new property</a></button>

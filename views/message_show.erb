@@ -25,12 +25,10 @@
 <br/>
 <h4>Comments</h4>
   <% @comments.each do |comment|%>
-   <p><%=comment.content%>  by <%=comment.user.name%></p>
+   <p><%=comment.content%> by <em>--<%=comment.user.name%></em></p>
   <%end%>
 
 <form action="/messages/<%= @message.id%>/comments" method="post">
-    <textarea name="content" rows="8" cols="40">
-
-    </textarea>
+    <textarea name="content" rows="8" cols="40"></textarea>
     <button>Post It</button>
 </form>
