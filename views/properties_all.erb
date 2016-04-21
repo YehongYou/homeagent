@@ -30,7 +30,7 @@
 <% @properties.each do |property| %>
   <p>
     <a href="/properties/<%=property.id%>">
-      * There is a <strong><%=property.property_purpose.name%></strong> home at <strong><%=property.suburb%></strong>, post at <%=property.post_date.localtime%>.
+      * There is a <strong><%=property.property_purpose.name%></strong> home at <strong><%=property.suburb%></strong>, post at <%=property.post_date.localtime.strftime("%d/%m/%Y at %I:%M%p")%>.
     </a>
   </p>
 <%end%>

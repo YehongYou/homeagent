@@ -39,7 +39,7 @@
       <%elsif message.user.gender == "female"%>
       <span>Miss.</span>
       <%end%>
-      <%=message.user.name%> wants to find a home at <strong><%=message.suburb%></strong>, post at <%=message.post_date.localtime%>.
+      <%=message.user.name%> wants to find a home at <strong><%=message.suburb%></strong>, post at <%=message.post_date.localtime.strftime("%d/%m/%Y at %I:%M%p")%>.
     </a>
   </p>
 <%end%>
