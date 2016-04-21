@@ -165,6 +165,7 @@ GEM
     multi_json (1.11.2)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    pg (0.18.4)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -190,6 +191,7 @@ DEPENDENCIES
   activerecord
   carrierwave
   fog
+  pg
   sinatra
 
 BUNDLED WITH
