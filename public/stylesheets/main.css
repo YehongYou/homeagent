@@ -1,0 +1,71 @@
+
+/* layout */
+#body {
+  background:url("/media/image/background5.jpg");
+  background-size: cover;
+}
+
+#footer{
+  background-color: #FFB700;
+  text-align: center;
+}
+
+/*================= index.erb ====================*/
+#index_body{
+  text-align: center;
+}
+
+#index_body .index_button1{
+margin-top: 50px;
+margin-left: auto;
+margin-right: auto;
+display: block;
+width: 200px;
+padding-top: 10px;
+padding-bottom: 10px;
+text-align: center;
+  color: rgb(230, 230, 230);
+font-size: 20px;
+/*padding: 20px;*/
+text-shadow: 0px -1px 0px rgba(30, 30, 30, 0.8);
+-webkit-border-radius: 30px;
+-moz-border-radius: 30px;
+border-radius: 30px;
+background: rgb(210, 20, 20);
+background: -moz-linear-gradient(90deg, rgb(210, 20, 20) 30%, rgb(250, 20, 20) 70%);
+background: -webkit-linear-gradient(90deg, rgb(210, 20, 20) 30%, rgb(250, 20, 20) 70%);
+background: -o-linear-gradient(90deg, rgb(210, 20, 20) 30%, rgb(250, 20, 20) 70%);
+background: -ms-linear-gradient(90deg, rgb(210, 20, 20) 30%, rgb(250, 20, 20) 70%);
+background: linear-gradient(0deg, rgb(210, 20, 20) 30%, rgb(250, 20, 20) 70%);
+-webkit-box-shadow: 0px 2px 1px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    0px 2px 1px rgba(50, 50, 50, 0.75);
+box-shadow:         0px 2px 1px rgba(50, 50, 50, 0.75);
+
+}
+
+#body .index_button2{
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 200px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  color: rgb(230, 230, 230);
+font-size: 20px;
+/*padding: 20px;*/
+text-shadow: 0px -1px 0px rgba(30, 30, 30, 0.8);
+-webkit-border-radius: 30px;
+-moz-border-radius: 30px;
+border-radius: 30px;
+background: rgb(53, 113, 255);
+background: -moz-linear-gradient(90deg, rgb(53, 113, 255) 30%, rgb(30, 60, 255) 70%);
+background: -webkit-linear-gradient(90deg, rgb(53, 113, 255) 30%, rgb(30, 60, 255) 70%);
+background: -o-linear-gradient(90deg, rgb(53, 113, 255) 30%, rgb(30, 60, 255) 70%);
+background: -ms-linear-gradient(90deg, rgb(53, 113, 255) 30%, rgb(30, 60, 255) 70%);
+background: linear-gradient(0deg, rgb(53, 113, 255) 30%, rgb(30, 60, 255) 70%);
+-webkit-box-shadow: 0px 2px 1px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    0px 2px 1px rgba(50, 50, 50, 0.75);
+box-shadow:         0px 2px 1px rgba(50, 50, 50, 0.75);
+}

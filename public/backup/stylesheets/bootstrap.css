@@ -1410,8 +1410,7 @@ a.bg-danger:focus {
 }
 .page-header {
   padding-bottom: 9px;
-  /*margin: 40px 0 20px;*/
-  margin:0;
+  margin: 40px 0 20px;
   border-bottom: 1px solid #eee;
 }
 ul,
@@ -4501,7 +4500,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-color: #e7e7e7;
 }
 .navbar-default .navbar-brand {
-  color: #FFFFFF;
+  color: #777;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
@@ -4512,9 +4511,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #777;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #FFF;
-  border: black;
-  display: inline-block;
+  color: #777;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {

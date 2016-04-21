@@ -81,6 +81,35 @@ get '/messages' do
      @messages = Message.order('post_date DESC')
    end
 
+  # find unique gender from all messages
+  all_messages2 = Message.all
+  all_genders = []
+  all_messages2.each do |each|
+    all_genders << each.user.gender
+  end
+  @genders = all_genders.uniq
+
+if params[:search_by_gender] != nil
+  # @messages = Message.where(gender: params[:search_by_gender]).order('post_date DESC')
+  @messages =[]
+  all_messages2.each do |each_message|
+    if each_message.user.gender == params[:search_by_gender]
+       @messages << each_message
+    end
+  end
+  @current_gender = params[:search_by_gender]
+else
+ #just get all messages
+  @messages = Message.order('post_date DESC')
+end
+
+
+
+
+
+
+
+
    erb :messages_all
 end
 
@@ -283,9 +312,16 @@ post "/register/new" do
     user.email = params[:input_email]
     user.password = params[:input_password]
     user.name = params[:input_name]
+    user.gender = params[:input_gender]
     user.phone = params[:input_phone]
     user.occupation = params[:input_occupation]
-    user.user_type_id = 2
+
+    if User.all.size == 0
+    user.user_type_id = 3  #set user as owner
+    else
+    user.user_type_id = 2 # set user as normal user
+    end
+
     exist = false
     users = User.all
     users.each do |user|

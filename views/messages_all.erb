@@ -10,13 +10,36 @@
 </select>
 <button>Search</button>
 </form>
+
+<form action='/messages'>
+<select name="search_by_gender">
+     <% @genders.each do |gender|%>
+       <%if gender == @current_gender%>
+       <option value="<%=gender%>" selected><%=gender%></option>
+       <%else%>
+          <option value="<%=gender%>"><%=gender%></option>
+       <%end%>
+     <%end%>
+</select>
+<button>Search</button>
+</form>
+
+
+
+
+
 <a href='/messages'>All</a>
 
 
 <% @messages.each do |message| %>
   <p>
     <a href="/messages/<%=message.id%>">
-      * I want to find a home at <strong><%=message.suburb%></strong>, post at <%=message.post_date.localtime%>.
+      * <%if message.user.gender == "male"%>
+      <span>Mr.</span>
+      <%elsif message.user.gender == "female"%>
+      <span>Miss.</span>
+      <%end%>
+      <%=message.user.name%> wants to find a home at <strong><%=message.suburb%></strong>, post at <%=message.post_date.localtime%>.
     </a>
   </p>
 <%end%>

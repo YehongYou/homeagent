@@ -19,6 +19,7 @@ CREATE TABLE users(
   email VARCHAR(50) NOT NULL,
   password_digest VARCHAR(400) NOT NULL,
   name VARCHAR(50) NOT NULL,
+  gender VARCHAR(50) NOT NULL,
   phone VARCHAR(50) NOT NULL,
   occupation VARCHAR(200),
   user_type_id INTEGER
