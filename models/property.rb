@@ -1,5 +1,6 @@
 require 'carrierwave'
 require 'carrierwave/orm/activerecord'
+require 'fog'
 
 class MyUploader < CarrierWave::Uploader::Base
  storage :file
