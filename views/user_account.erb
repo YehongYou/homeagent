@@ -1,15 +1,26 @@
+<section id="account">
+
+
+
 <h3><%=@user.name%>, here is your personal account</h3>
+
+
+
+
 
 <h4>These are your post tenant messages:</h4>
 <%@messages.each do |message|%>
    <p><a href="/messages/<%=message.id%>">
-     * I want to find a home at <strong><%=message.suburb%></strong>, post at <%=message.post_date.localtime%>.
+     <strong>*</strong> I want to find a home at <strong><%=message.suburb%></strong>, post on <%=message.post_date.localtime.strftime("%d/%m/%Y at %I:%M%p")%>.
    </a></p>
 <%end%>
 
 <h4>These are your post properties information:</h4>
 <%@properties.each do |property|%>
    <p><a href="/properties/<%=property.id%>">
-     * There is a <strong><%=property.property_purpose.name%></strong> home at <strong><%=property.suburb%></strong>, post at <%=property.post_date.localtime%>.
+     <strong>*</strong> There is a <strong><%=property.property_purpose.name%></strong> home at <strong><%=property.suburb%></strong>, post on <%=property.post_date.localtime.strftime("%d/%m/%Y at %I:%M%p")%>.
    </a></p>
 <%end%>
+
+</div>
+</section>

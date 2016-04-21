@@ -1,4 +1,10 @@
+<section id="property_edit">
 
+
+
+
+<h2>Edit your property information</h2>
+<div class="property_edit_body">
 <form class="" action="/properties/<%=@property.id%>" method="post">
     <input type="hidden" name="_method" value="patch">
 
@@ -31,4 +37,7 @@
 
 
     <button>Save changing</button>
+    <a href="/properties/<%=@property.id%>">Give up</a>
 </form>
+</div>
+</section>

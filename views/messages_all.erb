@@ -1,3 +1,6 @@
+
+<section id="messages_all">
+<h4>Find your nice tenants here!</h4>
 <form action='/messages'>
 <select name="search_by_suburb">
      <% @suburbs.each do |suburb|%>
@@ -28,20 +31,26 @@
 
 
 
-<a href='/messages'>All</a>
+<button class="allBtn"><a href='/messages'>All</a></button><br/>
+
+<br/>
+
 
 
 <% @messages.each do |message| %>
   <p>
-    <a href="/messages/<%=message.id%>">
-      * <%if message.user.gender == "male"%>
-      <span>Mr.</span>
+    <a class="messages" href="/messages/<%=message.id%>">
+      <%if message.user.gender == "male"%>
+      <img class="people" src="/media/image/male.png"/><span>Mr.</span>
       <%elsif message.user.gender == "female"%>
-      <span>Miss.</span>
+      <img class="people" src="/media/image/female.png"/><span>Miss.</span>
       <%end%>
-      <%=message.user.name%> wants to find a home at <strong><%=message.suburb%></strong>, post at <%=message.post_date.localtime.strftime("%d/%m/%Y at %I:%M%p")%>.
+      <%=message.user.name%> wants to find a home at <strong><%=message.suburb%></strong>, post on <%=message.post_date.localtime.strftime("%d/%m/%Y at %I:%M%p")%>.
     </a>
   </p>
 <%end%>
 
-<button><a href="/messages/new">I want to post a new message</a></button>
+<button><a class="add_p" href="/messages/new">I want to post a new message</a></button>
+
+
+</section>

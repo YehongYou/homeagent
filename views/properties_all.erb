@@ -1,3 +1,7 @@
+<section id="properties_all">
+
+
+<h4>Find your dream home here !</h4>
 <form action='/properties'>
 <select name="search_by_suburb">
      <% @suburbs.each do |suburb|%>
@@ -24,15 +28,17 @@
 <button>Search</button>
 </form>
 
-<a href='/properties'>All</a>
-
-
+<button class="allBtn"><a href='/properties'>All</a></button><br/>
+<br/>
 <% @properties.each do |property| %>
   <p>
-    <a href="/properties/<%=property.id%>">
-      * There is a <strong><%=property.property_purpose.name%></strong> home at <strong><%=property.suburb%></strong>, post at <%=property.post_date.localtime.strftime("%d/%m/%Y at %I:%M%p")%>.
+    <a class="properties" href="/properties/<%=property.id%>">
+      <img class="home" src="/media/image/home.png"/>There is a <strong><%=property.property_purpose.name%></strong> home at <strong><%=property.suburb%></strong>, post on <%=property.post_date.localtime.strftime("%d/%m/%Y at %I:%M%p")%>.
     </a>
   </p>
 <%end%>
 
-<button><a href="/properties/new">I want to post a new property</a></button>
+<button><a class="add_p" href="/properties/new">I want to post a new property</a></button>
+
+
+</section>

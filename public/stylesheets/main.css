@@ -1,8 +1,53 @@
 
 /* layout */
+@media (min-width: 600px) {
+  #body {
+    background:url("/media/image/big_bg.jpg");
+    background-size: cover;
+  }
+}
+@media (max-width: 600px) {
 #body {
-  background:url("/media/image/background5.jpg");
+  background:url("/media/image/small_bg.jpg");
   background-size: cover;
+}
+}
+
+#logo{
+  margin-top: 2px;
+  height: 45px;
+  width: 45px;
+}
+
+#happyhome{
+  height: 100px;
+  width: 200px;
+  display: block;
+  float: right;
+}
+
+.accountBtn{
+  border-radius: 20px;
+  background-color: #FFFFFF;
+}
+.accountBtn a:hover{
+  text-decoration: none;
+}
+
+.systemBtn a:hover{
+  text-decoration: none;
+}
+
+.systemBtn{
+  border-radius: 20px;
+  background-color: #D4984E;
+}
+
+
+#navbar-brand{
+  display: inline-block;
+  height: 100px;
+  width: 100px;
 }
 
 #footer{
@@ -10,9 +55,6 @@
   text-align: center;
 }
 
-@media () {
-
-}
 
 /*================= index.erb ====================*/
 #index_body{
@@ -72,4 +114,373 @@ background: linear-gradient(0deg, rgb(53, 113, 255) 30%, rgb(30, 60, 255) 70%);
 -webkit-box-shadow: 0px 2px 1px rgba(50, 50, 50, 0.75);
 -moz-box-shadow:    0px 2px 1px rgba(50, 50, 50, 0.75);
 box-shadow:         0px 2px 1px rgba(50, 50, 50, 0.75);
+}
+
+/*=========================  login erb ===============================*/
+#login_body span{
+  color: red;
+}
+
+#login_body a:hover{
+  font-size: 110%;
+}
+
+/*===========================property all erb==============================*/
+#properties_all{
+  margin-top: 10px;
+  padding-top: 10px;
+  min-height: 400px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  padding-left: 10px;
+}
+#properties_all h4{
+text-align: center;
+margin-top: 0;
+}
+
+#properties_all button{
+  background-color:#A27328;
+}
+#properties_all .add_p{
+  color: white;
+}
+
+#properties_all .add_p:hover{
+  text-decoration: none;
+}
+
+#properties_all .properties:hover{
+  text-decoration: none;
+  font-size: 110%;
+}
+
+#properties_all .home{
+  width: 20px;
+  height: 20px;
+}
+
+
+#properties_all form{
+  display: inline-block;
+  margin-left: 10px;
+}
+
+#properties_all form button{
+  border-radius: 20px;
+  background-color: #FDD631;
+}
+
+#properties_all .allBtn{
+  border-radius: 40px;
+  margin-left: 10px;
+  background-color: yellow;
+}
+
+/*===========================messages all erb==============================*/
+#messages_all{
+  margin-top: 10px;
+  padding-top: 10px;
+  min-height: 400px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  padding-left: 10px;
+}
+
+#messages_all h4{
+  text-align: center;
+  margin-top: 0;
+}
+
+#messages_all button{
+  background-color:#A27328;
+}
+#messages_all .add_p{
+  color: white;
+  text-decoration: none;
+}
+
+#messages_all .add_p:hover{
+  text-decoration: none;
+}
+
+#messages_all .messages:hover{
+  text-decoration: none;
+  font-size: 110%;
+}
+
+#messages_all .people{
+  width: 15px;
+  height: 20px;
+}
+
+#messages_all form{
+  display: inline-block;
+  margin-left: 10px;
+}
+
+#messages_all form button{
+  border-radius: 20px;
+  background-color: #FDD631;
+}
+
+#messages_all .allBtn{
+  border-radius: 40px;
+  margin-left: 10px;
+  background-color: yellow;
+}
+
+/*==========================register file =================*/
+#register{
+  text-align: center;
+  padding-left: 20px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  min-height: 450px;
+}
+#register h3{
+  margin-top: 0;
+}
+
+#register #inputEmail, #register #inputPassword{
+  display: inline;
+  width: 200px;
+}
+
+#register button{
+  margin-top: 20px;
+  background-color: #21BB20;
+  border-radius: 20px;
+}
+
+/*====================new property form ======================*/
+#new_property {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding-left: 20px;
+  padding-bottom: 20px;
+  border-radius: 40px;
+}
+#new_property h2{
+  text-align: center;
+}
+
+#new_property button{
+  margin-top: 20px;
+  background-color: #35A9F0;
+  border-radius: 20px;
+}
+
+/*======================new message =============================*/
+#new_message{
+  background-color: rgba(255, 255, 255, 0.7);
+  padding-left: 20px;
+  padding-bottom: 20px;
+  border-radius: 40px;
+}
+
+#new_message h2{
+  text-align: center;
+}
+
+#new_message button{
+  margin-top: 20px;
+  background-color: #F9EB6F;
+  border-radius: 20px;
+}
+
+/*========================message show===========================*/
+#message_show{
+  margin-top: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding-left: 20px;
+  padding-bottom: 20px;
+  border-radius: 20px;
+}
+#message_show h2{
+  margin-top: 0px;
+  text-align: center;
+}
+
+#message_show h5{
+  color: red;
+}
+
+#message_show button{
+  margin: 10px;
+  border-radius: 40px;
+}
+
+#message_show .editBtn{
+  background-color: #8FD6FA;
+}
+
+#message_show .editBtn a{
+  text-decoration: none;
+  color: black;
+}
+#message_show form{
+  display: inline-block;
+}
+#message_show .deleteBtn{
+  background-color: #FF3603;
+  color: white;
+}
+
+#message_show .postBtn{
+  background-color: #64D841;
+}
+
+#message_show hr{
+  margin: 0;
+}
+/*========================property show===========================*/
+#property_show{
+  margin-top: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding-left: 20px;
+  padding-bottom: 20px;
+  border-radius: 20px;
+}
+#property_show h2{
+  margin-top: 0px;
+  text-align: center;
+}
+#property_show h5{
+  color: red;
+}
+
+
+#property_show button{
+  margin: 10px;
+  border-radius: 40px;
+}
+
+#property_show .editBtn{
+  background-color: #8FD6FA;
+}
+
+#property_show .editBtn a{
+  text-decoration: none;
+  color: black;
+}
+#property_show form{
+  display: inline-block;
+}
+#property_show .deleteBtn{
+  background-color: #FF3603;
+  color: white;
+}
+
+#property_show .postBtn{
+  background-color: #64D841;
+}
+
+#property_show hr{
+  margin: 0;
+}
+
+/*==========================message edit=====================*/
+
+#message_edit{
+  background-color: rgba(255, 255, 255, 0.7);
+  padding-left: 20px;
+  padding-bottom: 20px;
+  border-radius: 40px;
+  text-align: center;
+}
+
+
+#message_edit h2{
+  text-align: center;
+}
+
+#message_edit button{
+  margin-top: 20px;
+  background-color: #F9EB6F;
+  border-radius: 20px;
+}
+
+/*==========================property edit=======================*/
+#property_edit {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding-left: 20px;
+  padding-bottom: 20px;
+  border-radius: 40px;
+}
+#property_edit h2{
+  text-align: center;
+}
+
+#property_edit button{
+  margin-top: 20px;
+  background-color: #35A9F0;
+  border-radius: 20px;
+}
+
+#property_edit .property_edit_body{
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*=========================account================================*/
+#account{
+  background-color: rgba(255, 255, 255, 0.8);
+  padding-left: 20px;
+  padding-bottom: 20px;
+  border-radius: 40px;
+  min-height: 400px;
+}
+
+#account h3{
+  text-align: center;
+}
+
+/*========================user all================================*/
+
+#user_all{
+  background-color: rgba(255, 255, 255, 0.7);
+  padding-left: 20px;
+  padding-bottom: 20px;
+  border-radius: 20px;
+  min-height: 400px;
+  padding-top: 10px;
+  margin-top: 20px;
+}
+#user_all a:hover{
+  text-decoration: none;
+}
+
+#user_all h3{
+  text-align: center;
+  margin-top: 0;
+}
+
+#user_all button{
+  border-radius: 40px;
+}
+
+#user_all .revokeBtn{
+   background-color: #A1D7F4;
+}
+#user_all .authorizeBtn{
+background-color: #F2DF31;
+}
+#user_all .deleteBtn{
+background-color: #FF3603;
+}
+
+#user_all .last_p{
+  display: inline;
+}
+
+#user_all form{
+  display: inline;
+}
+
+#user_all img{
+  width: 15px;
+  height: 20px;
 }

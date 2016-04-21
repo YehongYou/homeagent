@@ -1,3 +1,7 @@
+<section id="message_edit">
+
+<h2>Edit your persional message</h2>
+
 
 <form class="" action="/messages/<%=@message.id%>" method="post">
     <input type="hidden" name="_method" value="patch">
@@ -8,5 +12,7 @@
     <textarea rows="8" cols="40" name="input_requirement">
       <%=@message.requirement%>
     </textarea><br/>
-    <button>Save changing</button>
+    <a href="/messages/<%=@message.id%>">Give up</a> <button>Save changing</button>
 </form>
+
+</section>

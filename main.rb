@@ -1,6 +1,7 @@
 
 require 'sinatra'
-# require 'sinatra/reloader'
+require 'sinatra/reloader'
+require 'pry'
 
 require'./db_config'
 require'./models/comment'
@@ -9,6 +10,7 @@ require'./models/property_purpose'
 require'./models/property'
 require'./models/user_type'
 require'./models/user'
+require'./models/image'
 
 enable :sessions
 
@@ -140,6 +142,9 @@ get "/messages/:id" do
   if logged_in?
      @message = Message.find(params[:id])
      @user = @message.user
+     if @user == nil
+       redirect to "/messages"
+     end
      @comments = @message.comments
      erb :message_show
   else
@@ -248,6 +253,9 @@ get "/properties/:id" do
    if logged_in?
      @property = Property.find(params[:id])
      @user = @property.user
+     if @user == nil
+       redirect to "/properties"
+     end
      @comments = @property.comments
      erb :property_show
    else
@@ -382,3 +390,17 @@ end
 #    @user = User.find(params[:id])
 #    erb :user_details
 # end
+
+get '/about' do
+  erb :about
+end
+
+post '/upload' do
+  new_image = Image.new
+  new_image.image_url = params[:image]
+  if new_image.save
+    redirect to '/'
+  else
+    erb :about
+  end
+end

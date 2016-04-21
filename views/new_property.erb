@@ -1,4 +1,4 @@
-<h1>new property form</h1>
+<section id="new_property">
 
 <h2>Write your property information here !</h2>
 <form class="" action="/properties" method="post">
@@ -6,7 +6,7 @@
     <label for="">1. what kind of your property:</label><br/>
     <select class="" name="input_kind">
         <option value="House">House</option>
-        <option value="Town House">TownHose</option>
+        <option value="Town House">TownHouse</option>
         <option value="Apartment">Apartment</option>
         <option value="Unit">Unit</option>
     </select><br/>
@@ -15,10 +15,10 @@
     <input type="text" name="input_address" value=""><br/>
 
     <label for="">3. what is the suburb?</label><br/>
-    <input type="text" name="input_suburb" value=""><br/>
+    <input type="text" name="input_suburb" value="" required><br/>
 
     <label for="">4. How much for rent?</label><br/>
-    <input type="text" name="input_rent" value=""><span>(dollars) Per week</span><br/>
+    <input type="text" name="input_rent" value="" required><span>(dollars) Per week</span><br/>
 
     <label for="">5. Please give some description for your property.</label><br/>
     <textarea name="input_description" rows="8" cols="40"></textarea><br/>
@@ -34,3 +34,5 @@
     <button>Post It</button>
     </div>
 </form>
+
+</section>

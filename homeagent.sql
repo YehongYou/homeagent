@@ -68,3 +68,9 @@ CREATE TABLE comments(
   property_id INTEGER,
   user_id INTEGER
 );
+
+CREATE TABLE images(
+  id SERIAL4 PRIMARY KEY,
+  property_id INTEGER,
+  image_url VARCHAR(1000)
+);

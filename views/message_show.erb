@@ -1,31 +1,38 @@
+<section id="message_show">
+
+
+
 <a href="/messages">Back to</a>
-<h1>message details</h1>
+<h2>Message details</h2>
 
 <p>
-  "<%=@user.name%>" want to find a home at <%=@message.suburb %>, and this
-  message post at <%=@message.post_date.localtime%>
+  <strong>*</strong> "<%=@user.name%>" wants to find a home at <%=@message.suburb %>, and this
+  message post on <%=@message.post_date.localtime.strftime("%d/%m/%Y at %I:%M%p")%>
 </p>
-<h4>His/Her Requirement: </h4>
+ <h4>* His/Her Requirement: </h4>
 <p>
    <%=@message.requirement%>
 </p>
-<h4>Contact Details</h4>
+<h4>* Contact Details</h4>
 <p>
-  Name: <%=@user.name%> <br/>
-  Email: <%=@user.email%> <br/>
-  Phone no: <%=@user.phone%> <br/>
-  Occupation: <%=@user.occupation%>
+  <strong>Name:  </strong><%=@user.name%> <br/>
+  <strong>Gender:  </strong><%=@user.gender%> <br/>
+  <strong>Email:  </strong><%=@user.email%> <br/>
+  <strong>Phone no:  </strong><%=@user.phone%> <br/>
+  <strong>Occupation:  </strong><%=@user.occupation%>
 </p>
 
 
 <% if session[:user_id] == @message.user_id || current_user.user_type.name == "manager" || current_user.user_type.name == "owner"%>
 
-  <button><a href="/messages/<%=@message.id%>/edit">Edit Message</a></button>
+  <button class="editBtn"><a href="/messages/<%=@message.id%>/edit">Edit Message</a></button>
 
   <form action="/messages/<%=@message.id%>"  method="post">
      <input type="hidden" name="_method" value="delete">
-     <button>Delete Message</button>
+     <button class="deleteBtn">Delete Message</button>
   </form>
+<%else%>
+   <h5>PS.You have no right to <strong>edit</strong> or <strong>delete</strong> this message.</h5>
 
 <%end%>
 
@@ -34,12 +41,17 @@
 
 
 <br/>
-<h4>Comments</h4>
+<h4>Comments:</h4>
   <% @comments.each do |comment|%>
-   <p><%=comment.content%> by <em>--<%=comment.user.name%></em></p>
+   <p><strong> * </strong><%=comment.content%> &nbsp &nbsp --left by<em> <%=comment.user.name%></em></p>
+   <hr>
   <%end%>
 
 <form action="/messages/<%= @message.id%>/comments" method="post">
     <textarea name="content" rows="8" cols="40"></textarea>
-    <button>Post It</button>
+    <br/>
+    <button class="postBtn">Post It</button>
 </form>
+
+
+</section>

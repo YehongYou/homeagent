@@ -1,24 +1,29 @@
+<section id="user_all">
 
 
-<h5>* Owner:</h5>
+<h3>User Management System</h3>
+<h4><strong>*</strong> Owner:</h4>
 <% @owners.each do |owner|%>
-   <p><a href="#"><%=owner.name%></a>, <%=owner.email%>,
+   <p><img src="/media/image/owner.png"/><a href="#"><%=owner.name%></a>, <%=owner.email%>,
    Messages( <%=owner.messages.size%> ), Properties( <%=owner.properties.size%> )</p>
 <%end%>
 
-<h5>* Managers:</h5>
+<h4><strong>*</strong> Managers:</h4>
 <% @managers.each do |manager|%>
-   <p><a href="#"><%=manager.name%></a>, <%=manager.email%>, Messages( <%=manager.messages.size%> ), Properties( <%=manager.properties.size%> )
-     <button><a href='/users/revoke/<%=manager.id%>'>Revoke</a></button></p>
+   <p><img src="/media/image/manager.png"/><a href="#"><%=manager.name%></a>, <%=manager.email%>, Messages( <%=manager.messages.size%> ), Properties( <%=manager.properties.size%> )
+     <button class="revokeBtn"><a href='/users/revoke/<%=manager.id%>'>Revoke</a></button></p>
 <%end%>
 
-<h5>* Typical users: </h5>
+<h4><strong>*</strong> Typical users: </h4>
 <% @users.each do |user|%>
-   <p><a href="#"><%=user.name%></a>, <%=user.email%>, Messages( <%=user.messages.size%> ), Properties( <%=user.properties.size%> )
-     <button><a href='/users/<%=user.id%>'>Authorize</a></button>
+   <p class="last_p"><img src="/media/image/user.png"/><a href="#"><%=user.name%></a>, <%=user.email%>, Messages( <%=user.messages.size%> ), Properties( <%=user.properties.size%> )
+     <button class="authorizeBtn"><a href='/users/<%=user.id%>'>Authorize</a></button>
     <form action='/users/<%=user.id%>' method="post">
         <input type="hidden" name="_method" value="delete">
-        <button>Delete</button>
+        <button class="deleteBtn">Delete</button>
     </form>
    </p>
 <%end%>
+
+
+</section>
