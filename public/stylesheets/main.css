@@ -4,14 +4,18 @@
   #body {
     background:url("/media/image/big_bg.jpg");
     background-size: cover;
+    font-family: 'Fredoka One', cursive;
   }
 }
 @media (max-width: 600px) {
 #body {
   background:url("/media/image/small_bg.jpg");
   background-size: cover;
+  font-family: 'Chewy', cursive;
 }
 }
+
+
 
 #logo{
   margin-top: 2px;
@@ -59,6 +63,12 @@
 /*================= index.erb ====================*/
 #index_body{
   text-align: center;
+}
+
+#index_body h3{
+color:#2198DE;
+font-size: 2em;
+text-shadow:#FDD630 0 1px 0, #c9c9c9 0 2px 0, #bbb 0 3px 0, #b9b9b9 0 4px 0, #aaa 0 5px 0,rgba(0,0,0,.1) 0 6px 1px, rgba(0,0,0,.1) 0 0 5px, rgba(0,0,0,.3) 0 1px 3px, rgba(0,0,0,.15) 0 3px 5px, rgba(0,0,0,.2) 0 5px 10px, rgba(0,0,0,.2) 0 10px 10px, rgba(0,0,0,.1) 0 20px 20px;
 }
 
 #index_body .index_button1{
@@ -351,6 +361,15 @@ margin-top: 0;
   color: red;
 }
 
+#property_show .photo{
+  width: 200px;
+  height: 200px;
+  border: 2px solid #9D6A26;
+  border-radius: 10px;
+  margin: 5px;
+
+}
+
 
 #property_show button{
   margin: 10px;
@@ -483,4 +502,31 @@ background-color: #FF3603;
 #user_all img{
   width: 15px;
   height: 20px;
+}
+
+/*===========================about ====================================*/
+#about{
+  background-color: rgba(255, 255, 255, 0.7);
+  padding-left: 20px;
+  padding-bottom: 20px;
+  border-radius: 20px;
+  min-height: 400px;
+  padding-top: 10px;
+  margin-top: 20px;
+  z-index: 1;
+}
+
+#about h2{
+  margin-top: 0;
+  text-align: center;
+}
+
+#about img{
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 0.5;
+  width: 30%;
+  height: 50%;
 }

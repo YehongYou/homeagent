@@ -15,6 +15,12 @@
 <h4>* Description: </h4>
 <p><%=@property.description%></p>
 
+<h4>* Property Photos</h4>
+<% @images.each do |image| %>
+   <img class="photo" src="<%=image.image_url.url%>" alt="" />
+<%end%>
+
+
 <h4>* Contact Details</h4>
 <p>
   <strong>Name: </strong><%=@user.name%> <br/>

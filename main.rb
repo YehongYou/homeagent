@@ -243,6 +243,11 @@ post '/properties' do
   new_property.user_id = session[:user_id]
   new_property.property_purpose_id = params[:property_purpose_id]
   new_property.save
+  # create a new image
+    new_image = Image.new
+    new_image.image_url = params[:input_image]
+    new_image.property_id = Property.last.id
+    new_image.save
 
   redirect to '/properties'
 end
@@ -253,6 +258,7 @@ get "/properties/:id" do
    if logged_in?
      @property = Property.find(params[:id])
      @user = @property.user
+     @images = @property.images
      if @user == nil
        redirect to "/properties"
      end
@@ -398,9 +404,8 @@ end
 post '/upload' do
   new_image = Image.new
   new_image.image_url = params[:image]
-  if new_image.save
-    redirect to '/'
-  else
-    erb :about
-  end
+  new_image.save
+
+  erb :about
+
 end

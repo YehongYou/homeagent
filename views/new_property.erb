@@ -1,7 +1,7 @@
 <section id="new_property">
 
 <h2>Write your property information here !</h2>
-<form class="" action="/properties" method="post">
+<form class="" action="/properties" method="post" enctype="multipart/form-data">
 
     <label for="">1. what kind of your property:</label><br/>
     <select class="" name="input_kind">
@@ -23,7 +23,12 @@
     <label for="">5. Please give some description for your property.</label><br/>
     <textarea name="input_description" rows="8" cols="40"></textarea><br/>
 
-    <label for="">6. Do you want</label><br/>
+    <!--image upload here  -->
+    <label class="control-label">6. Select a photo</label>
+    <input id="input-1" type="file" class="file" name='input_image'>
+
+
+    <label for="">7. Do you want</label><br/>
     <select class="" name="property_purpose_id">
      <% @property_purposes.each do |property_purpose|%>
       <option value="<%=property_purpose.id%>"><%=property_purpose.name%></option>
