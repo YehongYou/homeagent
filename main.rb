@@ -77,7 +77,9 @@ get '/messages' do
 
    if params[:search_by_suburb] != nil
      @messages = Message.where(suburb: params[:search_by_suburb]).order('post_date DESC')
+
      @current_suburb = params[:search_by_suburb]
+
    else
     #just get all messages
      @messages = Message.order('post_date DESC')
@@ -100,9 +102,9 @@ if params[:search_by_gender] != nil
     end
   end
   @current_gender = params[:search_by_gender]
-else
- #just get all messages
-  @messages = Message.order('post_date DESC')
+# else
+#  #just get all messages
+#   @messages = Message.order('post_date DESC')
 end
 
 
