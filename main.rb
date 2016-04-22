@@ -1,7 +1,7 @@
 
 require 'sinatra'
-require 'sinatra/reloader'
-require 'pry'
+# require 'sinatra/reloader'
+# require 'pry'
 
 require'./db_config'
 require'./models/comment'
@@ -313,6 +313,12 @@ delete "/properties/:property_id" do
   if property.comments != nil
       property.comments.each do |each|
           each.destroy
+      end
+  end
+
+  if property.images != nil
+      property.images.each do |image|
+          image.destroy
       end
   end
 
