@@ -1,7 +1,7 @@
 
 require 'sinatra'
-# require 'sinatra/reloader'
-# require 'pry'
+require 'sinatra/reloader'
+require 'pry'
 
 require'./db_config'
 require'./models/comment'
@@ -174,6 +174,13 @@ end
 # delete the message in the database
 delete "/messages/:message_id" do
   message = Message.find(params[:message_id])
+
+  if message.comments != nil
+      message.comments.each do |comment|
+          comment.destroy
+      end
+  end
+
   message.destroy
   redirect to '/messages'
 end
@@ -302,6 +309,13 @@ end
 # delete the property in the database
 delete "/properties/:property_id" do
   property = Property.find(params[:property_id])
+
+  if property.comments != nil
+      property.comments.each do |each|
+          each.destroy
+      end
+  end
+
   property.destroy
   redirect to '/properties'
 end
@@ -388,6 +402,25 @@ end
 
 delete '/users/:id' do
    user = User.find(params[:id])
+
+   if user.comments != nil
+       user.comments.each do |each|
+           each.destroy
+       end
+   end
+
+   if user.messages != nil
+       user.messages.each do |each|
+           each.destroy
+       end
+   end
+
+   if user.properties != nil
+       user.properties.each do |each|
+           each.destroy
+       end
+   end
+
    user.destroy
    redirect to '/users'
 end
