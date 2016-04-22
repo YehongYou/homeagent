@@ -5,7 +5,7 @@
 
 <h2>Edit your property information</h2>
 <div class="property_edit_body">
-<form class="" action="/properties/<%=@property.id%>" method="post">
+<form class="" action="/properties/<%=@property.id%>" method="post" enctype="multipart/form-data">
     <input type="hidden" name="_method" value="patch">
 
     <label for="">1. what kind would you change?:</label><br/>
@@ -34,6 +34,9 @@
       <option value="<%=property_purpose.id%>"><%=property_purpose.name%></option>
      <%end%>
     </select><br/>
+
+    <label class="control-label">7. Add more photos</label>
+    <input id="input-1" type="file" class="file" name='input_image'>
 
 
     <button>Save changing</button>

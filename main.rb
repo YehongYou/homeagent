@@ -166,7 +166,7 @@ patch "/messages/:message_id" do
    message.requirement = params[:input_requirement]
    message.post_date = Time.now
    message.save
-   redirect to '/messages'
+   redirect to "/messages/#{params[:message_id]}"
 end
 
 # delete the message in the database
@@ -289,7 +289,12 @@ patch "/properties/:property_id" do
    property.property_purpose_id = params[:property_purpose_id]
    property.save
 
-   redirect to '/properties'
+   image = Image.new
+   image.image_url = params[:input_image]
+   image.property_id = params[:property_id]
+   image.save
+
+   redirect to "/properties/#{params[:property_id]}"
 end
 
 # delete the property in the database
