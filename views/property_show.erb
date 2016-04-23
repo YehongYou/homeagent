@@ -51,7 +51,7 @@
 <br/>
 <h4>Comments:</h4>
   <% @comments.each do |comment|%>
-   <p><strong> * </strong><%=comment.content%> &nbsp &nbsp --left by<em> <%=comment.user.name%></em></p>
+   <p><strong> * </strong><%=comment.content%> &nbsp &nbsp --left by<em> <%=comment.user.name%></em> (Phone: <%=comment.user.phone%>)</p>
    <hr>
   <%end%>
 

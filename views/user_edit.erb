@@ -1,0 +1,31 @@
+<section id="user_edit">
+
+
+
+
+<h3>Edit your information</h3>
+
+<form class="" action="/persion_account/edit" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+     <label for="">1. Your email address:</label><br/>
+     <input value="<%=@user.email%>" type="email" name="input_email" id="inputEmail" class="form-control" required autofocus><br/>
+     <label for="">2. Reset your password</label><br/>
+     <input type="password" name="input_password" id="inputPassword" class="form-control" required><br/>
+     <label for="">3. Please tell me your full name or nick name</label><br/>
+     <input value="<%=@user.name%>" type="text" name="input_name" required><br/>
+     <label for="">4. Your gender?</label><br/>
+     <select class="" name="input_gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+     </select><br/>
+     <label for="">5. Your contact phone no ?</label><br/>
+     <input value="<%=@user.phone%>" type="text" name="input_phone" required><br/>
+     <label for="">6. What is your occupation?</label><br/>
+     <input value="<%=@user.occupation%>" type="text" name="input_occupation" value="no"><br/>
+     <button>Save changing</button> <a href="/persion_account/<%=session[:user_id]%>">Give up</a>
+</form>
+
+
+
+</section>

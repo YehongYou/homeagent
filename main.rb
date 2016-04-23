@@ -1,7 +1,7 @@
 
 require 'sinatra'
-# require 'sinatra/reloader'
-# require 'pry'
+require 'sinatra/reloader'
+require 'pry'
 
 require'./db_config'
 require'./models/comment'
@@ -398,6 +398,42 @@ get '/users' do
    erb :user_all
 end
 
+# show single user details
+get '/persion_account/:user_id' do
+   @user = User.find(params[:user_id])
+   erb :user_details
+end
+
+# edit persional user information form
+
+get "/persion_account/:user_id/edit" do
+    @user = User.find(params[:user_id])
+
+    erb :user_edit
+end
+
+# edit persional user information
+
+patch "/persion_account/edit" do
+    @user = User.find(session[:user_id])
+    @user.name = params[:input_name]
+    @user.email = params[:input_email]
+    @user.gender = params[:input_gender]
+    @user.phone = params[:input_phone]
+    @user.occupation = params[:input_occupation]
+    if params[:input_password] != nil && params[:input_password] != ""
+     @user.password = params[:input_password]
+    end
+
+    @user.save
+    redirect "/persion_account/#{session[:user_id]}"
+end
+
+
+
+
+
+
 # change the normal user into manager
 get '/users/:id' do
    user = User.find(params[:id])
@@ -453,5 +489,4 @@ post '/upload' do
   new_image.save
 
   erb :about
-
 end
