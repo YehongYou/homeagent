@@ -18,7 +18,7 @@ CarrierWave.configure do |config|
 end
 
 class MyUploader < CarrierWave::Uploader::Base
- storage :fog 
+ storage :fog  
 
 end
 

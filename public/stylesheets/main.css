@@ -15,6 +15,10 @@
 }
 }
 
+.page-header h3 a:hover{
+  text-decoration: none;
+}
+
 
 
 #logo{
